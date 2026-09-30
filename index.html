@@ -1,88 +1,186 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Bootstrap CSS-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-         <!-- Custom CSS-->
-        <link rel="stylesheet" href="css/styles.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
 
-        <title>Pokédex | Home</title>
-    </head>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 
-    <body>
-        <header>
-            <nav class="navbar navbar-expand-lg">
+    <title>Pokédex | Home</title>
+</head>
 
-                <div class="container">
+<body>
 
-                    <a class="navbar-brand" href="index.html">Pokédex</a>
+    <header>
 
-                    <button class="navbar-toggler"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#pokemonNavbar"
-                            aria-controls="pokemonNavbar"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+        <nav class="navbar navbar-expand-lg">
 
-                    <div class="collapse navbar-collapse" id="pokemonNavbar">
+            <div class="container">
 
-                         <ul class="navbar-nav">
+                <a class="navbar-brand" href="index.html">Pokédex</a>
 
-                         <li class="nav-item">
+                <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#pokemonNavbar"
+                    aria-controls="pokemonNavbar"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
 
-                            <a class="nav-link" href="index.html">Home</a>
+                    <span class="navbar-toggler-icon"></span>
 
-                         </li>
+                </button>
 
-                         <li class="nav-item">
+                <div class="collapse navbar-collapse" id="pokemonNavbar">
+
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item">
+
+                            <a class="nav-link active"
+                                aria-current="page"
+                                href="index.html">Home</a>
+
+                        </li>
+
+                        <li class="nav-item">
 
                             <a class="nav-link" href="search.html">Search</a>
 
-                         </li>
-                         <li class="nav-item">
+                        </li>
+
+                        <li class="nav-item">
 
                             <a class="nav-link" href="database.html">Database</a>
 
-                            </li>
+                        </li>
 
-                         </ul>
-
-                    </div>
-
-                
+                    </ul>
 
                 </div>
 
-            </nav>
+            </div>
 
-        </header>
+        </nav>
 
-        <main class="container mt-4">
-
-            <h1>Pokédex</h1>
+    </header>
 
 
-            <section class="mb-5">
-                <h2>Featured Pokémon</h2>
-            </section>
+    <main class="container mt-4">
 
-            <section>
-                <h2>About This Pokédex</h2>
-            </section>
+        <h1>Pokédex</h1>
 
-        </main>
-        <footer>Footer</footer>
 
-        <!--Bootstrap JavaScript-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <section class="mb-5">
 
-    </body>
+            <h2>Featured Pokémon</h2>
+
+            <div id="featuredCarousel" class="carousel slide carousel-dark">
+
+                <div class="carousel-inner">
+
+
+                    <div class="carousel-item active">
+
+                        <div class="p-5 text-center bg-body-tertiary">
+
+                            <h3>Featured Pokémon #1</h3>
+
+                            <p>Pokémon data will be loaded here.</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="carousel-item">
+
+                        <div class="p-5 text-center bg-body-tertiary">
+
+                            <h3>Featured Pokémon #2</h3>
+
+                            <p>Pokémon data will be loaded here.</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="carousel-item">
+
+                        <div class="p-5 text-center bg-body-tertiary">
+
+                            <h3>Featured Pokémon #3</h3>
+
+                            <p>Pokémon data will be loaded here.</p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <button class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#featuredCarousel"
+                    data-bs-slide="prev">
+
+                    <span class="carousel-control-prev-icon"
+                        aria-hidden="true"></span>
+
+                    <span class="visually-hidden">Previous</span>
+
+                </button>
+
+                <button class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#featuredCarousel"
+                    data-bs-slide="next">
+                
+                    <span class="carousel-control-next-icon"
+                        aria-hidden="true"></span>
+
+                    <span class="visually-hidden">Next</span>
+                </button>
+
+
+            </div>
+
+        </section>
+
+
+        <section>
+
+            <h2>About This Pokédex</h2>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        Footer
+
+    </footer>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+</body>
+
 </html>
