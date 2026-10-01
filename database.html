@@ -1,253 +1,454 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Bootstrap CSS-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<head>
 
-         <!-- Custom CSS-->
-        <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
 
-        <title>Pokédex | Database</title>
-    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <body>
-        <header>
-            <nav class="navbar navbar-expand-lg">
 
-                <div class="container">
+    <!-- ========================================
+         BOOTSTRAP CSS
+         ======================================== -->
 
-                    <a class="navbar-brand" href="index.html">Pokédex</a>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
 
-                    <button class="navbar-toggler"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#pokemonNavbar"
-                            aria-controls="pokemonNavbar"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
 
-                    <div class="collapse navbar-collapse" id="pokemonNavbar">
+    <!-- ========================================
+         CUSTOM CSS
+         ======================================== -->
 
-                        <ul class="navbar-nav">
+    <link rel="stylesheet" href="css/styles.css">
 
-                          <li class="nav-item">
 
-                            <a class="nav-link" href="index.html">Home</a>
+    <title>Pokédex | Database</title>
 
-                          </li>
+</head>
 
-                          <li class="nav-item">
 
-                            <a class="nav-link" href="search.html">Search</a>
-                            
+<body>
 
-                          </li>
-                          <li class="nav-item">
 
-                            <a class="nav-link active" aria-current="page" href="database.html">Database</a>
+    <!-- ========================================
+         SITE HEADER / NAVIGATION
+         ======================================== -->
 
-                          </li>
+    <header>
 
-                        </ul>
+        <nav class="navbar navbar-expand-lg">
 
-                    </div>
+            <div class="container">
 
-                
 
-                </div>
+                <!-- Site Brand -->
 
-            </nav>
+                <a class="navbar-brand" href="index.html">
 
-        </header>
+                    Pokédex
 
-        <main class="container mt-4">
+                </a>
 
-            <h1>Pokémon Database</h1>
 
-            <section class="mt-4">
+                <!-- Mobile Navigation Toggle -->
 
-                <h2>Browse Pokémon</h2>
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#pokemonNavbar"
+                        aria-controls="pokemonNavbar"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
 
-                <div class="dropdown">
+                    <span class="navbar-toggler-icon"></span>
 
-                    <button class="btn btn-secondary dropdown-toggle"
-                            type="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                        
-                        Show 25 Pokémon
-                    
-                    </button>
+                </button>
 
-                    <ul class="dropdown-menu">
 
-                        <li>
-                            
-                            <button class="dropdown-item"
-                                    type="button">
-                                
-                                25 Pokémon
-                            
-                            </button>
+                <!-- Navigation Links -->
+
+                <div class="collapse navbar-collapse" id="pokemonNavbar">
+
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="index.html">
+
+                                Home
+
+                            </a>
 
                         </li>
 
-                        <li> 
 
-                            <button class="dropdown-item"
-                                    type="button">
-                                
-                                50 Pokémon
-                            
-                            </button>
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="search.html">
+
+                                Search
+
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a class="nav-link active"
+                               aria-current="page"
+                               href="database.html">
+
+                                Database
+
+                            </a>
 
                         </li>
 
                     </ul>
 
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ========================================
+         MAIN CONTENT
+         ======================================== -->
+
+    <main class="container mt-4">
+
+        <h1>Pokémon Database</h1>
+
+
+        <!-- ========================================
+             DATABASE BROWSER
+             ======================================== -->
+
+        <section class="mt-4">
+
+            <h2>Browse Pokémon</h2>
+
+
+            <!-- ========================================
+                 PAGE SIZE DROPDOWN
+                 ======================================== -->
+
+            <div class="dropdown">
+
+                <button class="btn btn-secondary dropdown-toggle"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
+
+                    Show 25 Pokémon
+
+                </button>
+
+
+                <ul class="dropdown-menu">
+
+                    <li>
+
+                        <button class="dropdown-item"
+                                type="button">
+
+                            25 Pokémon
+
+                        </button>
+
+                    </li>
+
+
+                    <li>
+
+                        <button class="dropdown-item"
+                                type="button">
+
+                            50 Pokémon
+
+                        </button>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- ========================================
+                 POKÉMON CARD GRID
+                 ======================================== -->
+
+            <!-- JavaScript inserts Pokémon cards here -->
+
+            <div class="row mt-4 g-3" id="pokemonGrid">
+
+            </div>
+
+
+            <!-- ========================================
+                 DATABASE PAGINATION
+                 ======================================== -->
+
+            <nav class="mt-4"
+                 aria-label="Pokémon database pages">
+
+                <ul class="pagination">
+
+
+                    <!-- Previous Page -->
+
+                    <li class="page-item disabled">
+
+                        <button class="page-link"
+                                type="button"
+                                disabled>
+
+                            Previous
+
+                        </button>
+
+                    </li>
+
+
+                    <!-- Current Page -->
+
+                    <li class="page-item active">
+
+                        <button class="page-link"
+                                type="button"
+                                aria-current="page">
+
+                            1
+
+                        </button>
+
+                    </li>
+
+
+                    <!-- Next Page -->
+
+                    <li class="page-item">
+
+                        <button class="page-link"
+                                type="button">
+
+                            Next
+
+                        </button>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </section>
+
+
+        <!-- ========================================
+             POKÉMON DETAILS MODAL
+             ======================================== -->
+
+        <div class="modal fade"
+             id="pokemonModal"
+             tabindex="-1"
+             aria-labelledby="pokemonModalLabel"
+             aria-hidden="true">
+
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+
+                    <!-- Modal Header -->
+
+                    <div class="modal-header">
+
+                        <h2 class="modal-title"
+                            id="pokemonModalLabel">
+
+                            Pokémon Details
+
+                        </h2>
+
+
+                        <button type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close">
+                        </button>
+
+                    </div>
+
+
+                    <!-- Modal Body -->
+
+                    <div class="modal-body">
+
+
+                        <!-- ========================================
+                             MODAL TAB NAVIGATION
+                             ======================================== -->
+
+                        <ul class="nav nav-tabs"
+                            role="tablist">
+
+
+                            <!-- Overview Tab -->
+
+                            <li class="nav-item"
+                                role="presentation">
+
+                                <button class="nav-link active"
+                                        id="overview-tab"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#overview-pane"
+                                        type="button"
+                                        role="tab"
+                                        aria-controls="overview-pane"
+                                        aria-selected="true">
+
+                                    Overview
+
+                                </button>
+
+                            </li>
+
+
+                            <!-- Stats Tab -->
+
+                            <li class="nav-item"
+                                role="presentation">
+
+                                <button class="nav-link"
+                                        id="stats-tab"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#stats-pane"
+                                        type="button"
+                                        role="tab"
+                                        aria-controls="stats-pane"
+                                        aria-selected="false">
+
+                                    Stats
+
+                                </button>
+
+                            </li>
+
+
+                            <!-- Abilities Tab -->
+
+                            <li class="nav-item"
+                                role="presentation">
+
+                                <button class="nav-link"
+                                        id="abilities-tab"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#abilities-pane"
+                                        type="button"
+                                        role="tab"
+                                        aria-controls="abilities-pane"
+                                        aria-selected="false">
+
+                                    Abilities
+
+                                </button>
+
+                            </li>
+
+                        </ul>
+
+
+                        <!-- ========================================
+                             MODAL TAB CONTENT
+                             ======================================== -->
+
+                        <div class="tab-content">
+
+
+                            <!-- Overview Content -->
+
+                            <div class="tab-pane fade show active"
+                                 id="overview-pane"
+                                 role="tabpanel"
+                                 aria-labelledby="overview-tab"
+                                 tabindex="0">
+
+                            </div>
+
+
+                            <!-- Stats Content -->
+
+                            <div class="tab-pane fade"
+                                 id="stats-pane"
+                                 role="tabpanel"
+                                 aria-labelledby="stats-tab"
+                                 tabindex="0">
+
+                            </div>
+
+
+                            <!-- Abilities Content -->
+
+                            <div class="tab-pane fade"
+                                 id="abilities-pane"
+                                 role="tabpanel"
+                                 aria-labelledby="abilities-tab"
+                                 tabindex="0">
+
+                            </div>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
-                <div class="row mt-4 g-3"
-                     id="pokemonGrid">
+            </div>
 
-                     <div class="col-12 col-md-6 col-lg-4">
+        </div>
 
-                        <div class="card">
-
-                            <div class="card-body">
-
-                                <p>#001</p>
-                                <h3 class="card-title">Bulbasaur</h3>
-                                <p class="card-text">Grass / Poison</p>
-                                <button class="btn btn-primary"
-                                        type="button">View Details 
-                                    
-                                    </button>
+    </main>
 
 
+    <!-- ========================================
+         SITE FOOTER
+         ======================================== -->
 
-                            </div>
+    <footer>
 
-                        </div>
+        Footer
 
-
-                     </div>
-
-                     <div class="col-12 col-md-6 col-lg-4">
-
-                        <div class="card">
-
-                            <div class="card-body">
-
-                                <p>#004</p>
-                                <h3 class="card-title">Charmander</h3>
-                                <p class="card-text">Fire</p>
-                                <button class="btn btn-primary"
-                                        type="button">View Details 
-                                    
-                                    </button>
+    </footer>
 
 
+    <!-- ========================================
+         BOOTSTRAP JAVASCRIPT
+         ======================================== -->
 
-                            </div>
-
-                        </div>
-
-
-                     </div>
-
-                     <div class="col-12 col-md-6 col-lg-4">
-
-                        <div class="card">
-
-                            <div class="card-body">
-
-                                <p>#007</p>
-                                <h3 class="card-title">Squirtle</h3>
-                                <p class="card-text">Water</p>
-                                <button class="btn btn-primary"
-                                        type="button">View Details 
-                                    
-                                    </button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous">
+    </script>
 
 
+    <!-- ========================================
+         CUSTOM JAVASCRIPT
+         ======================================== -->
 
-                            </div>
-
-                        </div>
-
-
-                     </div>
-                    
-                </div>
-
-                <nav class="mt-4"
-                     aria-label="Pokémon database pages">
-
-                     <ul class="pagination">
-
-                        <li class="page-item disabled">
-
-                            <button class="page-link"
-                                    type="button" 
-                                    disabled>
-                                    
-                                Previous
-                        
-                            </button>
-
-                        </li>
-
-                        <li class="page-item active">
-
-                            <button class="page-link"
-                                    type="button"
-                                    aria-current="page">
-                                
-                                1
-                            
-                            </button>
-
-                        </li>
-
-                        <li class="page-item">
-
-                            <button class="page-link"
-                                    type="button">
-                                
-                                Next
-                            
-                            </button>
-
-                        </li>
-
-                    
+    <script src="js/scripts.js"></script>
 
 
-                     </ul>
+</body>
 
-
-                </nav>
-
-            </section>
-
-
-        </main>
-        <footer>Footer</footer>
-
-        <!--Bootstrap JavaScript-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
-        <!-- Custom Javascript -->
-
-        <script src="js/scripts.js"></script>
-        
-    </body>
 </html>

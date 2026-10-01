@@ -3,22 +3,40 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-        crossorigin="anonymous">
 
-    <!-- Custom CSS -->
+    <!-- ========================================
+         BOOTSTRAP CSS
+         ======================================== -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
+
+
+    <!-- ========================================
+         CUSTOM CSS
+         ======================================== -->
+
     <link rel="stylesheet" href="css/styles.css">
 
+
     <title>Pokédex | Home</title>
+
 </head>
 
+
 <body>
+
+
+    <!-- ========================================
+         SITE HEADER / NAVIGATION
+         ======================================== -->
 
     <header>
 
@@ -26,19 +44,32 @@
 
             <div class="container">
 
-                <a class="navbar-brand" href="index.html">Pokédex</a>
+
+                <!-- Site Brand -->
+
+                <a class="navbar-brand" href="index.html">
+
+                    Pokédex
+
+                </a>
+
+
+                <!-- Mobile Navigation Toggle -->
 
                 <button class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#pokemonNavbar"
-                    aria-controls="pokemonNavbar"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#pokemonNavbar"
+                        aria-controls="pokemonNavbar"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
 
                     <span class="navbar-toggler-icon"></span>
 
                 </button>
+
+
+                <!-- Navigation Links -->
 
                 <div class="collapse navbar-collapse" id="pokemonNavbar">
 
@@ -47,20 +78,34 @@
                         <li class="nav-item">
 
                             <a class="nav-link active"
-                                aria-current="page"
-                                href="index.html">Home</a>
+                               aria-current="page"
+                               href="index.html">
+
+                                Home
+
+                            </a>
 
                         </li>
 
+
                         <li class="nav-item">
 
-                            <a class="nav-link" href="search.html">Search</a>
+                            <a class="nav-link" href="search.html">
+
+                                Search
+
+                            </a>
 
                         </li>
 
+
                         <li class="nav-item">
 
-                            <a class="nav-link" href="database.html">Database</a>
+                            <a class="nav-link" href="database.html">
+
+                                Database
+
+                            </a>
 
                         </li>
 
@@ -75,19 +120,34 @@
     </header>
 
 
+    <!-- ========================================
+         MAIN CONTENT
+         ======================================== -->
+
     <main class="container mt-4">
 
         <h1>Pokédex</h1>
 
 
+        <!-- ========================================
+             FEATURED POKÉMON CAROUSEL
+             ======================================== -->
+
         <section class="mb-5">
 
             <h2>Featured Pokémon</h2>
 
-            <div id="featuredCarousel" class="carousel slide carousel-dark">
+
+            <div id="featuredCarousel"
+                 class="carousel slide carousel-dark">
+
+
+                <!-- Carousel Slides -->
 
                 <div class="carousel-inner">
 
+
+                    <!-- Featured Pokémon 1 -->
 
                     <div class="carousel-item active">
 
@@ -95,12 +155,16 @@
 
                             <h3>Featured Pokémon #1</h3>
 
-                            <p>Pokémon data will be loaded here.</p>
+                            <p>
+                                Pokémon data will be loaded here.
+                            </p>
 
                         </div>
 
                     </div>
 
+
+                    <!-- Featured Pokémon 2 -->
 
                     <div class="carousel-item">
 
@@ -108,12 +172,16 @@
 
                             <h3>Featured Pokémon #2</h3>
 
-                            <p>Pokémon data will be loaded here.</p>
+                            <p>
+                                Pokémon data will be loaded here.
+                            </p>
 
                         </div>
 
                     </div>
 
+
+                    <!-- Featured Pokémon 3 -->
 
                     <div class="carousel-item">
 
@@ -121,50 +189,74 @@
 
                             <h3>Featured Pokémon #3</h3>
 
-                            <p>Pokémon data will be loaded here.</p>
+                            <p>
+                                Pokémon data will be loaded here.
+                            </p>
 
                         </div>
 
                     </div>
 
-
                 </div>
 
 
+                <!-- Previous Carousel Button -->
+
                 <button class="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#featuredCarousel"
-                    data-bs-slide="prev">
+                        type="button"
+                        data-bs-target="#featuredCarousel"
+                        data-bs-slide="prev">
 
                     <span class="carousel-control-prev-icon"
-                        aria-hidden="true"></span>
+                          aria-hidden="true">
+                    </span>
 
-                    <span class="visually-hidden">Previous</span>
+                    <span class="visually-hidden">
+
+                        Previous
+
+                    </span>
 
                 </button>
+
+
+                <!-- Next Carousel Button -->
 
                 <button class="carousel-control-next"
-                    type="button"
-                    data-bs-target="#featuredCarousel"
-                    data-bs-slide="next">
-                
+                        type="button"
+                        data-bs-target="#featuredCarousel"
+                        data-bs-slide="next">
+
                     <span class="carousel-control-next-icon"
-                        aria-hidden="true"></span>
+                          aria-hidden="true">
+                    </span>
 
-                    <span class="visually-hidden">Next</span>
+                    <span class="visually-hidden">
+
+                        Next
+
+                    </span>
+
                 </button>
-
 
             </div>
 
         </section>
 
 
+        <!-- ========================================
+             ABOUT ACCORDION
+             ======================================== -->
+
         <section>
 
             <h2>About This Pokédex</h2>
 
+
             <div class="accordion" id="aboutAccordion">
+
+
+                <!-- Accordion Item: About -->
 
                 <div class="accordion-item">
 
@@ -177,15 +269,16 @@
                                 aria-expanded="false"
                                 aria-controls="collapseAbout">
 
-                        What is this Pokédex?
+                            What is this Pokédex?
 
                         </button>
 
                     </h3>
 
+
                     <div id="collapseAbout"
-                        class="accordion-collapse collapse"
-                        data-bs-parent="#aboutAccordion">
+                         class="accordion-collapse collapse"
+                         data-bs-parent="#aboutAccordion">
 
                         <div class="accordion-body">
 
@@ -195,10 +288,12 @@
 
                         </div>
 
-                    
                     </div>
 
                 </div>
+
+
+                <!-- Accordion Item: Data Source -->
 
                 <div class="accordion-item">
 
@@ -211,15 +306,17 @@
                                 aria-expanded="false"
                                 aria-controls="collapseData">
 
-                                Where does the data come from?
-                            
-                            </button>
+                            Where does the data come from?
+
+                        </button>
+
                     </h3>
 
+
                     <div id="collapseData"
-                        class="accordion-collapse collapse"
-                        data-bs-parent="#aboutAccordion">
-                    
+                         class="accordion-collapse collapse"
+                         data-bs-parent="#aboutAccordion">
+
                         <div class="accordion-body">
 
                             <p>
@@ -227,9 +324,13 @@
                             </p>
 
                         </div>
-                    
+
                     </div>
+
                 </div>
+
+
+                <!-- Accordion Item: Instructions -->
 
                 <div class="accordion-item">
 
@@ -242,34 +343,39 @@
                                 aria-expanded="false"
                                 aria-controls="collapseUse">
 
-                                How do I use this Pokédex?
-                            
-                            </button>
+                            How do I use this Pokédex?
+
+                        </button>
+
                     </h3>
 
+
                     <div id="collapseUse"
-                        class="accordion-collapse collapse"
-                        data-bs-parent="#aboutAccordion">
+                         class="accordion-collapse collapse"
+                         data-bs-parent="#aboutAccordion">
 
                         <div class="accordion-body">
 
                             <p>
                                 Use the Search page to find a specific Pokémon, or browse the Database page to explore Pokémon.
                             </p>
+
                         </div>
-                    
+
                     </div>
+
                 </div>
 
-
-
             </div>
-
 
         </section>
 
     </main>
 
+
+    <!-- ========================================
+         SITE FOOTER
+         ======================================== -->
 
     <footer>
 
@@ -278,10 +384,15 @@
     </footer>
 
 
-    <!-- Bootstrap JavaScript -->
+    <!-- ========================================
+         BOOTSTRAP JAVASCRIPT
+         ======================================== -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous">
+    </script>
+
 
 </body>
 
