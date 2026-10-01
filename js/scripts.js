@@ -14,12 +14,37 @@ const statsPane = document.querySelector("#stats-pane");
 
 const abilitiesPane = document.querySelector("#abilities-pane");
 
+const pokemonGrid = document.querySelector("#pokemonGrid");
+
+    if (pokemonSearchForm) {
+
+
+
+
 
 pokemonSearchForm.addEventListener("submit", async function(event) {
 
     event.preventDefault();
 
     const searchValue = pokemonSearchInput.value.trim().toLowerCase();
+
+    if (searchValue === "") {
+
+            searchResult.innerHTML = `
+            
+                 <div class="alert alert-warning" role="alert">
+
+                    Please enter a Pokémon name or Pokédex number.
+
+                 </div>
+
+            `;
+
+            return;
+
+
+
+    }
 
     const apiUrl = `https://pokeapi.co/api/v2/pokemon/${searchValue}`;
 
@@ -39,10 +64,6 @@ pokemonSearchForm.addEventListener("submit", async function(event) {
     }
 
     const pokemonData = await response.json();
-
-    console.log(pokemonData.abilities);
-
-    console.log(pokemonData.sprites.other["official-artwork"].front_default);
 
     const pokemonName = pokemonData.name.charAt(0).toUpperCase() + pokemonData.name.slice(1);
 
@@ -172,5 +193,91 @@ abilitiesPane.innerHTML = pokemonAbilitiesHtml;
 
 
 });
+
+    }
+
+
+if (pokemonGrid) {
+
+        const databaseApiUrl = `https://pokeapi.co/api/v2/pokemon?limit=25&offset=0`;
+
+        async function loadPokemonDatabase() {
+            
+            const response = await fetch(databaseApiUrl);
+
+            const pokemonListData = await response.json();
+
+            const pokemonDetailListPromises = pokemonListData.results.map( async function(pokemon) {
+                
+                const detailResponse = await fetch(pokemon.url);
+
+                const pokemonDetails = await detailResponse.json();
+
+                return pokemonDetails;
+
+            });
+
+            const pokemonDetails = await Promise.all(pokemonDetailListPromises);
+
+            const pokemonCards = pokemonDetails.map(function(pokemon) {
+
+                const pokemonName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+
+                const pokemonId = pokemon.id;
+
+                const pokemonImage = pokemon.sprites.other["official-artwork"].front_default;
+
+                const pokemonTypes = pokemon.types.map(function(typeInfo) {
+
+                    return typeInfo.type.name;
+
+                });
+
+                const pokemonTypeText = pokemonTypes.join(" / ");
+
+                    return `
+
+                    <div class="col-12 col-md-6 col-lg-4">
+
+                        <div class="card h-100">
+
+                            <img src="${pokemonImage}"
+                                 class="card-img-top"
+                                 alt="${pokemonName}">
+
+                        <div class="card-body">
+
+                    <p>#${pokemonId}</p>
+
+                    <h3 class="card-title">${pokemonName}</h3>
+
+                    <p class="card-text">${pokemonTypeText}</p>
+
+                    <button class="btn btn-primary"
+                             type="button">
+
+                             View Details
+
+                             </button>
+                        </div>
+                    </div>
+                </div>
+
+                `;
+
+            
+            });
+
+            const pokemonCardsHtml = pokemonCards.join("");
+
+            pokemonGrid.innerHTML = pokemonCardsHtml;
+
+        }
+
+        loadPokemonDatabase();
+       
+
+
+};
 
 
