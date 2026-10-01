@@ -25,6 +25,19 @@ pokemonSearchForm.addEventListener("submit", async function(event) {
 
     const response = await fetch(apiUrl);
 
+    if (!response.ok) {
+
+        searchResult.innerHTML = `
+
+                <div class="alert alert-danger" role="alert">
+                      Pokémon not found. Try another search.
+                </div>
+        
+        `;
+
+        return;
+    }
+
     const pokemonData = await response.json();
 
     console.log(pokemonData.abilities);
