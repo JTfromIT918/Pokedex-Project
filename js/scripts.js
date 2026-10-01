@@ -8,6 +8,12 @@ const searchResult = document.querySelector("#searchResult");
 
 const pokemonModalLabel = document.querySelector("#pokemonModalLabel");
 
+const overviewPane = document.querySelector("#overview-pane");
+
+const statsPane = document.querySelector("#stats-pane");
+
+const abilitiesPane = document.querySelector("#abilities-pane");
+
 
 pokemonSearchForm.addEventListener("submit", async function(event) {
 
@@ -20,6 +26,8 @@ pokemonSearchForm.addEventListener("submit", async function(event) {
     const response = await fetch(apiUrl);
 
     const pokemonData = await response.json();
+
+    console.log(pokemonData.abilities);
 
     console.log(pokemonData.sprites.other["official-artwork"].front_default);
 
@@ -36,6 +44,34 @@ pokemonSearchForm.addEventListener("submit", async function(event) {
     const pokemonTypeText = pokemonTypes.join(" / ");
 
     const pokemonImage = pokemonData.sprites.other["official-artwork"].front_default;
+
+    const pokemonHeight = pokemonData.height / 10;
+
+    const pokemonWeight = pokemonData.weight / 10;
+
+    const pokemonStats = pokemonData.stats.map(function(statInfo) {
+
+        return `
+
+            <p>${statInfo.stat.name}: ${statInfo.base_stat}</p>
+
+            `;
+
+
+    });
+
+    const pokemonAbilities = pokemonData.abilities.map(function(abilityInfo) {
+
+            return `
+
+            <p>${abilityInfo.ability.name}</p>
+
+            `;
+    }); 
+
+    const pokemonAbilitiesHtml = pokemonAbilities.join("");
+
+    const pokemonStatsHtml = pokemonStats.join("");
 
     searchResult.innerHTML = `
 
@@ -90,7 +126,37 @@ pokemonSearchForm.addEventListener("submit", async function(event) {
 
 `;
 
-    
+
+overviewPane.innerHTML = `
+        <img src="${pokemonImage}"
+             class="img-fluid"
+             alt="${pokemonName}">
+
+        <p>Pokédex #: ${pokemonData.id}</p>
+
+        <p>Type: ${pokemonTypeText}</p>
+
+        <p>Height: ${pokemonHeight} m</p>
+
+        <p>Weight: ${pokemonWeight} kg</p>
+
+        
+
+`;
+
+statsPane.innerHTML = pokemonStatsHtml; 
+
+abilitiesPane.innerHTML = pokemonAbilitiesHtml;
+
+
+
+
+
+
+
+
+
+
 
 });
 

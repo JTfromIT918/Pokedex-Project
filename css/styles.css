@@ -1,6 +1,8 @@
 body {
 
-    background-image: url(../assets/Poke_Background.png);
+ 
+
+    background-image: url(../assets/Backgrounds/Poke_Background.png);
 
     background-size: cover;
 
@@ -8,6 +10,25 @@ body {
 
     background-repeat: no-repeat;
 
-    background-attachment: fixed;
-    
+    background-attachment: fixed; 
+
+}
+
+.traineros-navbar {
+
+
+    background-image: url("../assets/Backgrounds/Nav_Bar.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat; 
+
+    min-height: 90px;
+
+    border-radius: 12px;
+
+    overflow:hidden;
+
 }
