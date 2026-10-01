@@ -66,9 +66,176 @@
 
         </header>
 
-        <main>
+        <main class="container mt-4">
 
             <h1>Pokémon Database</h1>
+
+            <section class="mt-4">
+
+                <h2>Browse Pokémon</h2>
+
+                <div class="dropdown">
+
+                    <button class="btn btn-secondary dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        
+                        Show 25 Pokémon
+                    
+                    </button>
+
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            
+                            <button class="dropdown-item"
+                                    type="button">
+                                
+                                25 Pokémon
+                            
+                            </button>
+
+                        </li>
+
+                        <li> 
+
+                            <button class="dropdown-item"
+                                    type="button">
+                                
+                                50 Pokémon
+                            
+                            </button>
+
+                        </li>
+
+                    </ul>
+
+
+                </div>
+
+                <div class="row mt-4 g-3"
+                     id="pokemonGrid">
+
+                     <div class="col-12 col-md-6 col-lg-4">
+
+                        <div class="card">
+
+                            <div class="card-body">
+
+                                <p>#001</p>
+                                <h3 class="card-title">Bulbasaur</h3>
+                                <p class="card-text">Grass / Poison</p>
+                                <button class="btn btn-primary"
+                                        type="button">View Details 
+                                    
+                                    </button>
+
+
+
+                            </div>
+
+                        </div>
+
+
+                     </div>
+
+                     <div class="col-12 col-md-6 col-lg-4">
+
+                        <div class="card">
+
+                            <div class="card-body">
+
+                                <p>#004</p>
+                                <h3 class="card-title">Charmander</h3>
+                                <p class="card-text">Fire</p>
+                                <button class="btn btn-primary"
+                                        type="button">View Details 
+                                    
+                                    </button>
+
+
+
+                            </div>
+
+                        </div>
+
+
+                     </div>
+
+                     <div class="col-12 col-md-6 col-lg-4">
+
+                        <div class="card">
+
+                            <div class="card-body">
+
+                                <p>#007</p>
+                                <h3 class="card-title">Squirtle</h3>
+                                <p class="card-text">Water</p>
+                                <button class="btn btn-primary"
+                                        type="button">View Details 
+                                    
+                                    </button>
+
+
+
+                            </div>
+
+                        </div>
+
+
+                     </div>
+                    
+                </div>
+
+                <nav class="mt-4"
+                     aria-label="Pokémon database pages">
+
+                     <ul class="pagination">
+
+                        <li class="page-item disabled">
+
+                            <button class="page-link"
+                                    type="button">
+                                    
+                                Previous
+                        
+                            </button>
+
+                        </li>
+
+                        <li class="page-item active">
+
+                            <button class="page-link"
+                                    type="button"
+                                    aria-current="page">
+                                
+                                1
+                            
+                            </button>
+
+                        </li>
+
+                        <li class="page-item">
+
+                            <button class="page-link"
+                                    type="button">
+                                
+                                Next
+                            
+                            </button>
+
+                        </li>
+
+                    
+
+
+                     </ul>
+
+
+                </nav>
+
+            </section>
 
 
         </main>
