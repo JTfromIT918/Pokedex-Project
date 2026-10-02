@@ -305,108 +305,132 @@ if (pokemonGrid) {
 
     async function loadPokemonDatabase() {
 
-        // ========================================
-        // START DATABASE LOAD
-        // ========================================
-
-        const offset = (currentPage - 1) * pageSize;
+        try {
 
 
-
-        // ========================================
-        // BUILD DATABASE API URL
-        // ========================================
-
-        const databaseApiUrl =
-            `https://pokeapi.co/api/v2/pokemon?limit=${pageSize}&offset=${offset}`;
-
-
-        // ========================================
-        // FETCH LIST OF 25 POKÉMON
-        // ========================================
-
-        const response = await fetch(databaseApiUrl);
-
-
-        const pokemonListData = await response.json();
-
-        hasNextPage = pokemonListData.next !== null;
-
-        updatePaginationControls();
-
-
-        // ========================================
-        // FETCH FULL DETAILS FOR EACH POKÉMON
-        // ========================================
-
-        const pokemonDetailListPromises =
-            pokemonListData.results.map(async function (pokemon) {
-
-
-                const detailResponse = await fetch(pokemon.url);
-
-
-                const pokemonDetails = await detailResponse.json();
-
-
-                return pokemonDetails;
-
-            });
-
-
-        // ========================================
-        // WAIT FOR ALL DETAIL REQUESTS
-        // ========================================
-
-        const pokemonDetails =
-            await Promise.all(pokemonDetailListPromises);
-
-
-        // ========================================
-        // STORE POKÉMON FOR MODAL LOOKUP
-        // ========================================
-
-        databasePokemon = pokemonDetails;
-
-
-        // ========================================
-        // BUILD DATABASE CARDS
-        // ========================================
-
-        const pokemonCards = pokemonDetails.map(function (pokemon) {
 
 
             // ========================================
-            // PREPARE CARD DATA
+            // START DATABASE LOAD
             // ========================================
 
-            const pokemonName =
-                pokemon.name.charAt(0).toUpperCase() +
-                pokemon.name.slice(1);
 
+            pokemonGrid.innerHTML = `
+        
+        <div class="col-12 text-center py-5">
+        
+            <div class="spinner-border text-primary"
+                role="status">
+                <span class="visually-hidden">
+                    Loading Pokémon...
+                </span>
+                
+            </div>
+            
+            <p class="mt-3">
+                Loading Pokémon...
+            </p>
+            
+        </div>`
 
-            const pokemonId = pokemon.id;
+            const offset = (currentPage - 1) * pageSize;
 
-
-            const pokemonImage =
-                pokemon.sprites.other["official-artwork"].front_default;
-
-
-            const pokemonTypes = pokemon.types.map(function (typeInfo) {
-
-                return typeInfo.type.name;
-
-            });
-
-
-            const pokemonTypeText = pokemonTypes.join(" / ");
 
 
             // ========================================
-            // RETURN DATABASE CARD HTML
+            // BUILD DATABASE API URL
             // ========================================
 
-            return `
+            const databaseApiUrl =
+                `https://pokeapi.co/api/v2/pokemon?limit=${pageSize}&offset=${offset}`;
+
+
+            // ========================================
+            // FETCH LIST OF 25 POKÉMON
+            // ========================================
+
+            const response = await fetch(databaseApiUrl);
+
+
+            const pokemonListData = await response.json();
+
+            hasNextPage = pokemonListData.next !== null;
+
+            updatePaginationControls();
+
+
+            // ========================================
+            // FETCH FULL DETAILS FOR EACH POKÉMON
+            // ========================================
+
+            const pokemonDetailListPromises =
+                pokemonListData.results.map(async function (pokemon) {
+
+
+                    const detailResponse = await fetch(pokemon.url);
+
+
+                    const pokemonDetails = await detailResponse.json();
+
+
+                    return pokemonDetails;
+
+                });
+
+
+            // ========================================
+            // WAIT FOR ALL DETAIL REQUESTS
+            // ========================================
+
+            const pokemonDetails =
+                await Promise.all(pokemonDetailListPromises);
+
+
+            // ========================================
+            // STORE POKÉMON FOR MODAL LOOKUP
+            // ========================================
+
+            databasePokemon = pokemonDetails;
+
+
+            // ========================================
+            // BUILD DATABASE CARDS
+            // ========================================
+
+            const pokemonCards = pokemonDetails.map(function (pokemon) {
+
+
+                // ========================================
+                // PREPARE CARD DATA
+                // ========================================
+
+                const pokemonName =
+                    pokemon.name.charAt(0).toUpperCase() +
+                    pokemon.name.slice(1);
+
+
+                const pokemonId = pokemon.id;
+
+
+                const pokemonImage =
+                    pokemon.sprites.other["official-artwork"].front_default;
+
+
+                const pokemonTypes = pokemon.types.map(function (typeInfo) {
+
+                    return typeInfo.type.name;
+
+                });
+
+
+                const pokemonTypeText = pokemonTypes.join(" / ");
+
+
+                // ========================================
+                // RETURN DATABASE CARD HTML
+                // ========================================
+
+                return `
 
                 <div class="col-12 col-md-6 col-lg-4">
 
@@ -450,17 +474,37 @@ if (pokemonGrid) {
 
             `;
 
-        });
+            });
 
 
-        // ========================================
-        // DISPLAY DATABASE CARDS
-        // ========================================
+            // ========================================
+            // DISPLAY DATABASE CARDS
+            // ========================================
 
-        const pokemonCardsHtml = pokemonCards.join("");
+            const pokemonCardsHtml = pokemonCards.join("");
 
 
-        pokemonGrid.innerHTML = pokemonCardsHtml;
+            pokemonGrid.innerHTML = pokemonCardsHtml;
+
+        } catch (error) {
+
+            console.error("Database loading error:", error);
+
+            pokemonGrid.innerHTML = `
+            
+                <div class="col-12>
+                
+                    <div class="alert alert-danger text-center"
+                        role="alert">
+                        
+                        Unable to load the Pokémon database.
+                        Please try again.
+                        
+                    </div>
+                </div>
+                
+                `;
+        }
 
     }
 
