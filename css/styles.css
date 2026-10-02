@@ -32,3 +32,38 @@ body {
     overflow:hidden;
 
 }
+
+.traineros-logo {
+
+    transform: translateY(-6px);
+}
+
+.traineros-nav-image {
+
+    height: 45px;
+
+    weight: auto;
+
+   
+
+}
+
+.traineros-nav-search {
+
+    height: 45px;
+
+    weight: auto;
+
+    
+
+    
+}
+
+.traineros-nav-database {
+
+    height: 45px;
+
+    weight: auto;
+
+
+}
