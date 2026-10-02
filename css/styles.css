@@ -67,3 +67,21 @@ body {
 
 
 }
+
+.roudevbush-logo {
+
+    height: 60px;
+
+    weight: auto;
+
+}
+
+
+.footer-content {
+
+    background-color: rgba(0, 0, 0, 0.25);
+
+    border-radius: 12px;
+
+    padding: 15px;
+}
