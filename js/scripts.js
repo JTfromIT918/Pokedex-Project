@@ -21,6 +21,16 @@ const abilitiesPane = document.querySelector("#abilities-pane");
 
 const pokemonGrid = document.querySelector("#pokemonGrid");
 
+const pageSizeDropdown = document.querySelector("#pageSizeDropdown");
+
+const pageSizeOptions = document.querySelectorAll(".page-size-option");
+
+const previousPageButton = document.querySelector("#previousPageButton");
+
+const currentPageDisplay = document.querySelector("#currentPageDisplay");
+
+const nextPageButton = document.querySelector("#nextPageButton");
+
 
 // ========================================
 // SEARCH PAGE
@@ -33,7 +43,7 @@ if (pokemonSearchForm) {
     // SEARCH FORM SUBMISSION
     // ========================================
 
-    pokemonSearchForm.addEventListener("submit", async function(event) {
+    pokemonSearchForm.addEventListener("submit", async function (event) {
 
         event.preventDefault();
 
@@ -113,7 +123,7 @@ if (pokemonSearchForm) {
             pokemonData.name.slice(1);
 
 
-        const pokemonTypes = pokemonData.types.map(function(typeInfo) {
+        const pokemonTypes = pokemonData.types.map(function (typeInfo) {
 
             return typeInfo.type.name;
 
@@ -136,7 +146,7 @@ if (pokemonSearchForm) {
         // PREPARE SEARCH MODAL STATS
         // ========================================
 
-        const pokemonStats = pokemonData.stats.map(function(statInfo) {
+        const pokemonStats = pokemonData.stats.map(function (statInfo) {
 
             return `
 
@@ -154,7 +164,7 @@ if (pokemonSearchForm) {
         // PREPARE SEARCH MODAL ABILITIES
         // ========================================
 
-        const pokemonAbilities = pokemonData.abilities.map(function(abilityInfo) {
+        const pokemonAbilities = pokemonData.abilities.map(function (abilityInfo) {
 
             return `
 
@@ -279,9 +289,14 @@ if (pokemonGrid) {
 
     let databasePokemon = [];
 
+    let pageSize = 25;
 
-    const databaseApiUrl =
-        "https://pokeapi.co/api/v2/pokemon?limit=25&offset=0";
+    let currentPage = 1;
+
+    let hasNextPage = true;
+
+
+
 
 
     // ========================================
@@ -289,6 +304,21 @@ if (pokemonGrid) {
     // ========================================
 
     async function loadPokemonDatabase() {
+
+        // ========================================
+        // START DATABASE LOAD
+        // ========================================
+
+        const offset = (currentPage - 1) * pageSize;
+
+
+
+        // ========================================
+        // BUILD DATABASE API URL
+        // ========================================
+
+        const databaseApiUrl =
+            `https://pokeapi.co/api/v2/pokemon?limit=${pageSize}&offset=${offset}`;
 
 
         // ========================================
@@ -300,13 +330,17 @@ if (pokemonGrid) {
 
         const pokemonListData = await response.json();
 
+        hasNextPage = pokemonListData.next !== null;
+
+        updatePaginationControls();
+
 
         // ========================================
         // FETCH FULL DETAILS FOR EACH POKÉMON
         // ========================================
 
         const pokemonDetailListPromises =
-            pokemonListData.results.map(async function(pokemon) {
+            pokemonListData.results.map(async function (pokemon) {
 
 
                 const detailResponse = await fetch(pokemon.url);
@@ -339,7 +373,7 @@ if (pokemonGrid) {
         // BUILD DATABASE CARDS
         // ========================================
 
-        const pokemonCards = pokemonDetails.map(function(pokemon) {
+        const pokemonCards = pokemonDetails.map(function (pokemon) {
 
 
             // ========================================
@@ -358,7 +392,7 @@ if (pokemonGrid) {
                 pokemon.sprites.other["official-artwork"].front_default;
 
 
-            const pokemonTypes = pokemon.types.map(function(typeInfo) {
+            const pokemonTypes = pokemon.types.map(function (typeInfo) {
 
                 return typeInfo.type.name;
 
@@ -437,12 +471,124 @@ if (pokemonGrid) {
 
     loadPokemonDatabase();
 
+    // ========================================
+    // PAGE SIZE DROPDOWN
+    // ========================================
+
+    pageSizeOptions.forEach(function (option) {
+
+        option.addEventListener("click", function () {
+
+            // Get the selected page size
+
+            pageSize = Number(option.dataset.pageSize);
+
+            currentPage = 1;
+
+            updatePaginationControls();
+
+            // Update the dropdown button text
+
+            pageSizeDropdown.textContent =
+                `Show ${pageSize} Pokémon`;
+
+            // Reload the database with the page size
+
+            loadPokemonDatabase();
+
+        });
+
+
+    });
+
+    // ========================================
+    // UPDATE PAGINATION CONTROLS
+    // ========================================
+
+    function updatePaginationControls() {
+
+        currentPageDisplay.textContent = currentPage;
+
+
+        if (currentPage === 1) {
+
+            previousPageButton.disabled = true;
+
+            previousPageButton.parentElement.classList.add("disabled");
+
+        } else {
+
+            previousPageButton.disabled = false;
+
+            previousPageButton.parentElement.classList.remove("disabled");
+
+        }
+
+        if (hasNextPage === false) {
+
+            nextPageButton.disabled = true;
+
+            nextPageButton.parentElement.classList.add("disabled");
+
+
+        } else {
+
+            nextPageButton.disabled = false;
+
+            nextPageButton.parentElement.classList.remove("disabled");
+        }
+    }
+
+
+
+
+    // ========================================
+    // NEXT PAGE BUTTON
+    // ========================================
+
+    nextPageButton.addEventListener("click", function () {
+
+        currentPage = currentPage + 1;
+
+        updatePaginationControls();
+
+        loadPokemonDatabase();
+
+
+    });
+
+    // ========================================
+    // PREVIOUS PAGE BUTTON
+    // ========================================
+
+    previousPageButton.addEventListener("click", function () {
+
+        if (currentPage === 1) {
+
+            return;
+
+        };
+
+        currentPage = currentPage - 1;
+
+        updatePaginationControls();
+
+        loadPokemonDatabase();
+
+    });
+
+    // ========================================
+    // INITIALIZE PAGINATION CONTROLS
+    // ========================================
+
+    updatePaginationControls();
+
 
     // ========================================
     // DATABASE DETAILS MODAL
     // ========================================
 
-    pokemonGrid.addEventListener("click", function(event) {
+    pokemonGrid.addEventListener("click", function (event) {
 
 
         // ========================================
@@ -472,7 +618,7 @@ if (pokemonGrid) {
         // ========================================
 
         const selectedPokemon =
-            databasePokemon.find(function(pokemon) {
+            databasePokemon.find(function (pokemon) {
 
                 return pokemon.id === Number(pokemonId);
 
@@ -489,7 +635,7 @@ if (pokemonGrid) {
 
 
         const pokemonTypes =
-            selectedPokemon.types.map(function(typeInfo) {
+            selectedPokemon.types.map(function (typeInfo) {
 
                 return typeInfo.type.name;
 
@@ -522,8 +668,8 @@ if (pokemonGrid) {
         overviewPane.innerHTML = `
 
             <img src="${pokemonImage}"
-                 class="img-fluid"
-                 alt="${pokemonName}">
+                class="img-fluid"
+                alt="${pokemonName}">
 
             <p>Pokédex #: ${selectedPokemon.id}</p>
 
@@ -540,7 +686,7 @@ if (pokemonGrid) {
         // DATABASE MODAL - STATS TAB
         // ========================================
 
-        const pokemonStats = selectedPokemon.stats.map(function(statInfo)  {
+        const pokemonStats = selectedPokemon.stats.map(function (statInfo) {
 
             return `
             
@@ -560,7 +706,7 @@ if (pokemonGrid) {
         // DATABASE MODAL - ABILITIES TAB
         // ========================================
 
-        const pokemonAbilities = selectedPokemon.abilities.map(function(abilityInfo)  {
+        const pokemonAbilities = selectedPokemon.abilities.map(function (abilityInfo) {
 
 
             return `

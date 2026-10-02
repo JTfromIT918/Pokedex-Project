@@ -145,6 +145,7 @@
             <div class="dropdown">
 
                 <button class="btn btn-secondary dropdown-toggle"
+                        id="pageSizeDropdown"
                         type="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false">
@@ -158,8 +159,9 @@
 
                     <li>
 
-                        <button class="dropdown-item"
-                                type="button">
+                        <button class="dropdown-item page-size-option"
+                                type="button"
+                                data-page-size="25">
 
                             25 Pokémon
 
@@ -170,8 +172,9 @@
 
                     <li>
 
-                        <button class="dropdown-item"
-                                type="button">
+                        <button class="dropdown-item page-size-option"
+                                type="button"
+                                data-page-size="50">
 
                             50 Pokémon
 
@@ -207,11 +210,11 @@
 
                     <!-- Previous Page -->
 
-                    <li class="page-item disabled">
+                    <li class="page-item">
 
                         <button class="page-link"
-                                type="button"
-                                disabled>
+                                id="previousPageButton"
+                                type="button">
 
                             Previous
 
@@ -225,6 +228,7 @@
                     <li class="page-item active">
 
                         <button class="page-link"
+                                id="currentPageDisplay"
                                 type="button"
                                 aria-current="page">
 
@@ -240,6 +244,7 @@
                     <li class="page-item">
 
                         <button class="page-link"
+                                id="nextPageButton"
                                 type="button">
 
                             Next
