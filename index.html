@@ -1,429 +1,1139 @@
 <!DOCTYPE html>
 
+
+
 <html lang="en">
+
+
 
 <head>
 
+
+
     <meta charset="UTF-8">
+
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
+
+
+
     <!-- ========================================
+
          BOOTSTRAP CSS
+
          ======================================== -->
 
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+
           rel="stylesheet"
+
           integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+
           crossorigin="anonymous">
 
 
+
+
+
     <!-- ========================================
+
          CUSTOM CSS
+
          ======================================== -->
+
+
 
     <link rel="stylesheet" href="css/styles.css">
 
 
+
+
+
     <title>Pokédex | Home</title>
 
+
+
     <link rel="icon"
+
         type="image/png"
+
         href="assets/Branding/favicon.png">
 
+
+
 </head>
+
+
+
 
 
 <body>
 
 
+
+
+
     <!-- ========================================
+
          SITE HEADER / NAVIGATION
+
          ======================================== -->
+
+
 
     <header>
 
+
+
         <nav class="navbar navbar-expand-lg navbar-dark traineros-navbar">
+
+
 
             <div class="container">
 
 
+
+
+
                 <!-- Site Brand -->
+
+
 
                 <a class="navbar-brand fw-bold" href="index.html">
 
+
+
                     <img src="assets/Branding/TrainerOS_Logo.png"
+
                         alt="TrainerOS"
+
                         class="traineros-logo"
+
                         height="90">
+
+
 
                 </a>
 
 
+
+
+
                 <!-- Mobile Navigation Toggle -->
 
+
+
                 <button class="navbar-toggler"
+
                         type="button"
+
                         data-bs-toggle="collapse"
+
                         data-bs-target="#pokemonNavbar"
+
                         aria-controls="pokemonNavbar"
+
                         aria-expanded="false"
+
                         aria-label="Toggle navigation">
+
+
 
                     <span class="navbar-toggler-icon"></span>
 
+
+
                 </button>
+
+
+
 
 
                 <!-- Navigation Links -->
 
+
+
                 <div class="collapse navbar-collapse" id="pokemonNavbar">
+
+
 
                     <ul class="navbar-nav ms-auto">
 
+
+
                         <li class="nav-item">
 
+
+
                             <a class="nav-link active"
+
                                aria-current="page"
+
                                href="index.html">
 
+
+
                                 <img src="assets/NavBar/Navbar-Home-1.png"
+
                                     alt="Home"
+
                                     class="traineros-nav-image">
 
+
+
                             </a>
+
+
 
                         </li>
 
 
+
+
+
                         <li class="nav-item">
+
+
 
                             <a class="nav-link" href="search.html">
 
+
+
                                 <img src="assets/NavBar/Navbar-Search-1.png"
+
                                     alt="Search"
+
                                     class="traineros-nav-search">
+
+
 
                             </a>
 
+
+
                         </li>
+
+
+
 
 
                         <li class="nav-item">
 
+
+
                             <a class="nav-link" href="database.html">
 
+
+
                                 <img src="assets/NavBar/Navbar-Database.png"
+
                                     alt="Database"
+
                                     class="traineros-nav-database">
+
+
 
                             </a>
 
+
+
                         </li>
+
+
 
                     </ul>
 
+
+
                 </div>
+
+
 
             </div>
 
+
+
         </nav>
+
+
 
     </header>
 
 
+
+
+
     <!-- ========================================
+
          MAIN CONTENT
+
          ======================================== -->
+
+
 
     <main class="container mt-4">
 
-        <h1>Pokédex</h1>
+
+
+        <h1 class="display-5 fw-bold">
+
+
+
+            TrainerOS
+
+
+
+        </h1>
+
+
+
+        <p class="lead">
+
+
+
+            Your Pokémon trainer information system.        
+
+
+
+        </p>
+
+
+
 
 
         <!-- ========================================
+
              FEATURED POKÉMON CAROUSEL
+
              ======================================== -->
+
+
 
         <section class="mb-5">
 
-            <h2>Featured Pokémon</h2>
+
+
+            <h2 class="mt-4">
+
+
+
+                Featured Pokémon
+
+
+
+            </h2>
+
+
+
 
 
             <div id="featuredCarousel"
+
                  class="carousel slide carousel-dark">
+
+
+
 
 
                 <!-- Carousel Slides -->
 
-                <div class="carousel-inner">
 
 
-                    <!-- Featured Pokémon 1 -->
+                <div class="carousel-inner"
 
-                    <div class="carousel-item active">
-
-                        <div class="p-5 text-center bg-body-tertiary">
-
-                            <h3>Featured Pokémon #1</h3>
-
-                            <p>
-                                Pokémon data will be loaded here.
-                            </p>
-
-                        </div>
-
-                    </div>
+                    id="featuredPokemonSlides">
 
 
-                    <!-- Featured Pokémon 2 -->
-
-                    <div class="carousel-item">
-
-                        <div class="p-5 text-center bg-body-tertiary">
-
-                            <h3>Featured Pokémon #2</h3>
-
-                            <p>
-                                Pokémon data will be loaded here.
-                            </p>
-
-                        </div>
-
-                    </div>
 
 
-                    <!-- Featured Pokémon 3 -->
 
-                    <div class="carousel-item">
+                    <!-- JavaScript inserts daily featured Pokemon here -->
 
-                        <div class="p-5 text-center bg-body-tertiary">
 
-                            <h3>Featured Pokémon #3</h3>
 
-                            <p>
-                                Pokémon data will be loaded here.
-                            </p>
 
-                        </div>
-
-                    </div>
 
                 </div>
 
 
+
+
+
                 <!-- Previous Carousel Button -->
 
+
+
                 <button class="carousel-control-prev"
+
                         type="button"
+
                         data-bs-target="#featuredCarousel"
+
                         data-bs-slide="prev">
 
+
+
                     <span class="carousel-control-prev-icon"
+
                           aria-hidden="true">
+
                     </span>
+
+
 
                     <span class="visually-hidden">
 
+
+
                         Previous
+
+
 
                     </span>
 
+
+
                 </button>
+
+
+
 
 
                 <!-- Next Carousel Button -->
 
+
+
                 <button class="carousel-control-next"
+
                         type="button"
+
                         data-bs-target="#featuredCarousel"
+
                         data-bs-slide="next">
 
+
+
                     <span class="carousel-control-next-icon"
+
                           aria-hidden="true">
+
                     </span>
+
+
 
                     <span class="visually-hidden">
 
+
+
                         Next
+
+
 
                     </span>
 
+
+
                 </button>
 
+
+
             </div>
+
+
 
         </section>
 
 
+
+
+
+        <!-- =======================================
+
+             FEATURED POKEMON DETAILS MODAL
+
+             ======================================= -->
+
+
+
+
+
+        <div class="modal fade"
+
+            id="pokemonModal"
+
+            tabindex="-1"
+
+            aria-labelledby="pokemonModalLabel"
+
+            aria-hidden="true">
+
+
+
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+
+
+
+
+
+                <div class="modal-content">
+
+
+
+        <!-- Modal Header -->
+
+
+
+        <div class="modal-header">
+
+
+
+            <h2 class="modal-title fs-5"
+
+                id="pokemonModalLabel">
+
+
+
+                Pokemon Details 
+
+
+
+            </h2>
+
+
+
+            <button type="button"
+
+                class="btn-close"
+
+                data-bs-dismiss="modal"
+
+                aria-label="Close">
+
+            </button>
+
+
+
+        </div>
+
+
+
+        <!-- Modal Body -->
+
+
+
+        <div class="modal-body">
+
+
+
+
+
+                <!-- Detail Tabs -->
+
+
+
+                <ul class="nav nav-tabs"
+
+                    id="pokemonDetailTabs"
+
+                    role="tablist">
+
+
+
+                    <li class="nav-item"
+
+                        role="presentation">
+
+
+
+                        <button class="nav-link active"
+
+                                id="overview-tab"
+
+                                data-bs-toggle="tab"
+
+                                data-bs-target="#overview-pane"
+
+                                type="button"
+
+                                role="tab"
+
+                                aria-controls="overview-pane"
+
+                                aria-selected="true">
+
+
+
+                            Overview
+
+
+
+                        </button>
+
+
+
+                    </li>
+
+
+
+
+
+                    <li class="nav-item"
+
+                        role="presentation">
+
+
+
+                        <button class="nav-link"
+
+                                id="stats-tab"
+
+                                data-bs-toggle="tab"
+
+                                data-bs-target="#stats-pane"
+
+                                type="button"
+
+                                role="tab"
+
+                                aria-controls="stats-pane"
+
+                                aria-selected="false">
+
+
+
+                            Stats
+
+
+
+                        </button>
+
+
+
+                    </li>
+
+
+
+
+
+                    <li class="nav-item"
+
+                        role="presentation">
+
+
+
+                        <button class="nav-link"
+
+                                id="abilities-tab"
+
+                                data-bs-toggle="tab"
+
+                                data-bs-target="#abilities-pane"
+
+                                type="button"
+
+                                role="tab"
+
+                                aria-controls="abilities-pane"
+
+                                aria-selected="false">
+
+
+
+                            Abilities
+
+
+
+                        </button>
+
+
+
+                    </li>
+
+
+
+                </ul>
+
+
+
+
+
+                <!-- Tab Content -->
+
+
+
+                <div class="tab-content pt-3"
+
+                     id="pokemonDetailTabContent">
+
+
+
+
+
+                    <div class="tab-pane fade show active"
+
+                         id="overview-pane"
+
+                         role="tabpanel"
+
+                         aria-labelledby="overview-tab">
+
+
+
+                        <!-- JavaScript inserts overview -->
+
+
+
+                    </div>
+
+
+
+
+
+                    <div class="tab-pane fade"
+
+                         id="stats-pane"
+
+                         role="tabpanel"
+
+                         aria-labelledby="stats-tab">
+
+
+
+                        <!-- JavaScript inserts stats -->
+
+
+
+                    </div>
+
+
+
+
+
+                    <div class="tab-pane fade"
+
+                         id="abilities-pane"
+
+                         role="tabpanel"
+
+                         aria-labelledby="abilities-tab">
+
+
+
+                        <!-- JavaScript inserts abilities -->
+
+
+
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+        <!-- Modal Footer -->
+
+
+
+        <div class="modal-footer">
+
+
+
+                <button type="button"
+
+                    class="btn btn-secondary"
+
+                    data-bs-dismiss="modal">
+
+
+
+                    Close
+
+
+
+
+
+                </button>
+
+
+
+        </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
         <!-- ========================================
+
              ABOUT ACCORDION
+
              ======================================== -->
+
+
 
         <section>
 
-            <h2>About This Pokédex</h2>
+
+
+            <h2>About TrainerOS</h2>
+
+
+
 
 
             <div class="accordion" id="aboutAccordion">
 
 
+
+
+
                 <!-- Accordion Item: About -->
+
+
 
                 <div class="accordion-item">
 
+
+
                     <h3 class="accordion-header">
 
+
+
                         <button class="accordion-button collapsed"
+
                                 type="button"
+
                                 data-bs-toggle="collapse"
+
                                 data-bs-target="#collapseAbout"
+
                                 aria-expanded="false"
+
                                 aria-controls="collapseAbout">
 
-                            What is this Pokédex?
+
+
+                            What is TrainerOS?
+
+
 
                         </button>
+
+
 
                     </h3>
 
 
+
+
+
                     <div id="collapseAbout"
+
                          class="accordion-collapse collapse"
+
                          data-bs-parent="#aboutAccordion">
+
+
 
                         <div class="accordion-body">
 
+
+
                             <p>
-                                This Pokédex lets users search for Pokémon and browse the Pokémon database.
+
+                                TrainerOS lets users search for Pokémon and browse the Pokémon database.
+
                             </p>
+
+
 
                         </div>
 
+
+
                     </div>
 
+
+
                 </div>
+
+
+
 
 
                 <!-- Accordion Item: Data Source -->
 
+
+
                 <div class="accordion-item">
+
+
 
                     <h3 class="accordion-header">
 
+
+
                         <button class="accordion-button collapsed"
+
                                 type="button"
+
                                 data-bs-toggle="collapse"
+
                                 data-bs-target="#collapseData"
+
                                 aria-expanded="false"
+
                                 aria-controls="collapseData">
+
+
 
                             Where does the data come from?
 
+
+
                         </button>
+
+
 
                     </h3>
 
 
+
+
+
                     <div id="collapseData"
+
                          class="accordion-collapse collapse"
+
                          data-bs-parent="#aboutAccordion">
+
+
 
                         <div class="accordion-body">
 
+
+
                             <p>
+
                                 Pokémon data is provided by PokéAPI.
+
                             </p>
+
+
 
                         </div>
 
+
+
                     </div>
 
+
+
                 </div>
+
+
+
 
 
                 <!-- Accordion Item: Instructions -->
 
+
+
                 <div class="accordion-item">
+
+
 
                     <h3 class="accordion-header">
 
+
+
                         <button class="accordion-button collapsed"
+
                                 type="button"
+
                                 data-bs-toggle="collapse"
+
                                 data-bs-target="#collapseUse"
+
                                 aria-expanded="false"
+
                                 aria-controls="collapseUse">
 
-                            How do I use this Pokédex?
+
+
+                            How do I use TrainerOS?
+
+
 
                         </button>
+
+
 
                     </h3>
 
 
+
+
+
                     <div id="collapseUse"
+
                          class="accordion-collapse collapse"
+
                          data-bs-parent="#aboutAccordion">
+
+
 
                         <div class="accordion-body">
 
+
+
                             <p>
+
                                 Use the Search page to find a specific Pokémon, or browse the Database page to explore Pokémon.
+
                             </p>
+
+
 
                         </div>
 
+
+
                     </div>
+
+
 
                 </div>
 
+
+
             </div>
 
+
+
         </section>
+
+
 
     </main>
 
 
+
+
+
     <!-- ========================================
+
          SITE FOOTER
+
          ======================================== -->
+
+
 
     <footer class="text-center py-4">
 
+
+
         <div class="container footer-content">
 
+
+
             <img src="assets/Branding/rouDEVbush-logo.png"
+
                 alt="rouDEVbush"
+
                 class="roudevbush-logo mb-2">
+
+
 
                 <p class="mb-1">
 
+
+
                     Designed &amp; developed by rouDEVbush
 
+
+
                 </p>
+
+
 
                 <p class="small mb-0">
 
+
+
                     TrainerOS &copy; 2026
 
+
+
                 </p>
+
         </div>
+
+
 
     </footer>
 
 
+
+
+
     <!-- ========================================
+
          BOOTSTRAP JAVASCRIPT
+
          ======================================== -->
 
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+
             crossorigin="anonymous">
+
     </script>
 
 
+
+    <!-- =======================================
+
+         CUSTOM JAVASCRIPT
+
+         ======================================= -->
+
+
+
+         <script src="js/scripts.js"></script>
+
+
+
+
+
 </body>
+
+
 
 </html>
