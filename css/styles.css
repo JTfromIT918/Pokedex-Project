@@ -1,87 +1,192 @@
+/* ========================================
+   PAGE BACKGROUNDS
+======================================== */
+
 body {
-
- 
-
-    background-image: url(../assets/Backgrounds/Poke_Background.png);
-
     background-size: cover;
-
     background-position: center;
-
     background-repeat: no-repeat;
-
-    background-attachment: fixed; 
-
+    background-attachment: fixed;
 }
 
+.home-page {
+    background-image: url("../assets/Backgrounds/Poke_Background.png");
+}
+
+.search-page {
+    background-image: url("../assets/Backgrounds/PokeSearch_Background.png");
+}
+
+.database-page {
+    background-image: url("../assets/Backgrounds/PokeDatabase_Background.png");
+}
+
+
+/* ========================================
+   NAVBAR
+======================================== */
+
 .traineros-navbar {
-
-
-    background-image: url("../assets/Backgrounds/Nav_Bar.png");
-
+    background-image: url("../assets/NavBar/Nav_Bar.png");
     background-size: cover;
-
     background-position: center;
-
-    background-repeat: no-repeat; 
-
+    background-repeat: no-repeat;
     min-height: 90px;
-
     border-radius: 12px;
-
-    overflow:hidden;
-
+    overflow: hidden;
 }
 
 .traineros-logo {
-
     transform: translateY(-6px);
 }
 
 .traineros-nav-image {
-
     height: 45px;
-
-    weight: auto;
-
-   
-
+    width: auto;
 }
 
 .traineros-nav-search {
-
     height: 45px;
-
-    weight: auto;
-
-    
-
-    
+    width: auto;
 }
 
 .traineros-nav-database {
-
     height: 45px;
-
-    weight: auto;
-
-
+    width: auto;
 }
+
+
+/* ========================================
+   MOBILE NAVBAR
+======================================== */
+
+.navbar-toggler {
+    background-color: rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 0.5rem 0.65rem;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
 
 .roudevbush-logo {
-
     height: 60px;
-
-    weight: auto;
-
+    width: auto;
 }
 
-
 .footer-content {
-
     background-color: rgba(0, 0, 0, 0.25);
-
     border-radius: 12px;
-
     padding: 15px;
+}
+/* ========================================
+   ACCORDION STYLING
+======================================== */
+
+.accordion-item {
+    font-family: "Orbitron", sans-serif;
+    font=weight: 600;
+    letter-spacing: 0.04em;
+    background-color: rgba(10, 15, 25, 0.80);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.20);
+}
+
+.accordion-button {
+    background-color: rgba(10, 15, 25, 0.90);
+    color: white;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgba(20, 30, 45, 0.95);
+    color: white;
+}
+
+.accordion.button:focus {
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.30);
+}
+
+.accordion-body {
+     font-size: 1rem;
+     line-height: 1.6;
+     color: white;
+    background-color: rgba(10, 15, 25, 0.80);
+}
+
+.accordion-button::after {
+    filter: invert(1);
+}
+
+/* ========================================
+   FONTS
+======================================== */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color:white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.accordion-button,
+.btn {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+h1,
+h2 {
+    text-shadow: 0 2px 8px rgba(10, 15, 25, 0.85);
+}
+
+.accordion-button {
+    text-shadow: 0 1px 4px black;
+}
+
+/* ========================================
+   SEARCH BAR
+======================================== */
+
+#pokemonSearchInput {
+    background-color: rgba(10, 15, 25, 0.85);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+#pokemonSearchInput::placeholder {
+    color: rgba(255, 255, 255, 0.60);
+}
+
+#pokemonSearchInput:focus {
+    background-color: rgba(10, 15, 25, 0.95);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.65);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.20);
+}
+
+/* ========================================
+   SEARCH PANEL
+======================================== */
+
+.search-page .card {
+    background-color: rgba(10, 15, 25, 0.82);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(4px);
+}
+
+.search-page .card-body {
+    background-color: transparent;
+}
+
+.search-page .text-muted {
+    color: rgba(255, 255, 255, 0.70) !important;
 }

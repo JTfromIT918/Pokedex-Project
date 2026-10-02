@@ -603,7 +603,7 @@ if (pokemonGrid) {
 
                     return `
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="card h-100">
+                            <div class="card h-100 bg-dark bg-opacity-75 text-white border-secondary">
                                 <img src="${pokemonImage}"
                                      class="card-img-to p-3"
                                      alt="${pokemonName}"
